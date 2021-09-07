@@ -183,7 +183,11 @@ namespace Binance.Net.ClientWPF
             {
                 var result = await client.Spot.Market.GetPricesAsync();
                 if (result.Success)
-                    AllPrices = new ObservableCollection<BinanceSymbolViewModel>(result.Data.Select(r => new BinanceSymbolViewModel(r.Symbol, r.Price)).ToList());
+                {
+                    //UpdataDisplayedData(result.Data);
+                    ObservableCollection<BinanceSymbolViewModel> data = new ObservableCollection<BinanceSymbolViewModel>(result.Data.Select(r => new BinanceSymbolViewModel(r.Symbol, r.Price)).ToList().Where(b => b.Symbol.Contains("USDT")));
+                    AllPrices = data;
+                }
                 else
                     messageBoxService.ShowMessage($"Error requesting data: {result.Error.Message}", "error", MessageBoxButton.OK, MessageBoxImage.Error);
             }

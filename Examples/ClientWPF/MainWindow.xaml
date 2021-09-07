@@ -35,6 +35,13 @@
                         DisplayMemberBinding="{Binding Symbol}"/>
                         <GridViewColumn Width="100" Header="Price"
                         DisplayMemberBinding="{Binding Price}"/>
+                        <GridViewColumn Width="100" Header="Price"
+                        DisplayMemberBinding="{Binding PriceChangePercent}"/>
+                        <GridViewColumn Width="100" Header="Price"
+                        DisplayMemberBinding="{Binding HighPrice}"/>
+                        <GridViewColumn Width="100" Header="Price"
+                        DisplayMemberBinding="{Binding LowPrice}"/>
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
